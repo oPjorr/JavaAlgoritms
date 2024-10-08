@@ -27,6 +27,7 @@
 
 
 - Crie um getter para o identificador. Devemos ter um setter?
+<span style="color:red">R:</span> Não precisamos de um setter para a resolução desse problema, pois se definirmos uma variável estática ela vai pertencer à classe, e por conta disso, basta apenas incrementá-la
 
 
 

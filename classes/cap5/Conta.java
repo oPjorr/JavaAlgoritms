@@ -4,17 +4,41 @@ public class Conta {
     String titular;
     int numero;
     private double saldo;
-    int id = 1;
+    static int totalContas = 1;
+    int id;
+    int dia;
+    int mes;
+    int ano;
+    String cpf;
 
-    public void gerarId(int id) {
-        this.id = id;
-        this.id++;
-    }
 
     Conta(int numero, double saldo, String titular) {
         this.numero = numero;
         this.saldo = saldo;
         this.titular = titular;
+        this.id = totalContas;
+        totalContas++;
+
+    }
+
+    Conta(int numero, double saldo) {
+        this.numero = numero;
+        this.saldo = saldo;
+        this.id = totalContas;
+        totalContas += 1;
+    }
+
+    public void mudaCPF(String cpf) {
+        validaCPF(cpf);
+        this.cpf = cpf;
+    }
+
+    private void validaCPF(String cpf) {
+        // falta implementação
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public String getSaldo() {
@@ -25,8 +49,12 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public int getId() {
-        return id;
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public String getTitular() {
+        return this.titular;
     }
 
     public void sacaValor(double valor) {
