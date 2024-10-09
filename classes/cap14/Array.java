@@ -10,9 +10,6 @@ public class Array {
 //        expenses.add(10.57);
 //        expenses.add(81.37);
 //        System.out.println(expenses);
-//        System.out.println();
-
-        int[] numbers = {1,2,3,4};
-        System.out.println(numbers);
+        System.out.println();
     }
 }
