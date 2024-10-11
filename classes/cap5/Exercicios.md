@@ -36,3 +36,4 @@
 
 
 7. (Opcional) Imagine que tenhamos a classe PessoaFisica a qual tem um CPF como atributo. Como garantir que alguma pessoa física tenha CPF inválido e tampouco seja criada uma PessoaFisica sem CPF inicial? (Suponha que já exista um algoritmo de validação de CPF: este deve passar por um método valida(String x)....)
+   <span style="color:red">R:</span>Segui a lógica para validação do cpf do site: https://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097
