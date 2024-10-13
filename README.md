@@ -1,1 +1,1 @@
-# Java Algoritms that I solved
+# Some Java Algoritms that I solved
