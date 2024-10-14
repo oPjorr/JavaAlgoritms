@@ -9,5 +9,10 @@ public class SistemaBancario {
         System.out.println("Agência: " + poupanca.agencia);
         System.out.println("Saldo: " + poupanca.saldo);
         System.out.println("===================");
+
+        Conta cp = new ContaPoupanca("Paulo", 123, 1234, 1000, "Poupanca");
+        Conta cc = new ContaCorrente("Patricia", 103, 1234, 0, "Corrente");
+        System.out.println(cc.getInfo());
+        System.out.println(cp.getInfo());
     }
 }

@@ -1,6 +1,6 @@
 package classes.cap9;
 
-public class Conta {
+public abstract class Conta {
     String titular;
     int numero;
     int agencia;
@@ -15,7 +15,21 @@ public class Conta {
         this.tipo = tipo;
     }
 
-    public void getInfo() {
-        System.out.println("Olá");
+    public void saca(double valor) {
+        if(valor > this.saldo) {
+            throw new IllegalArgumentException("Saldo insuficiente");
+        }
+        this.saldo -= valor;
     }
+
+    public void deposita(double valor) {
+        this.saldo += valor;
+    }
+
+    public void transfere(double valor, Conta destino) {
+        this.saca(valor);
+        destino.deposita(valor);
+    }
+
+    public abstract String getInfo();
 }

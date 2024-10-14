@@ -6,7 +6,7 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-   public void getInfo() {
-       super.getInfo();
+   public String getInfo() {
+       return "Conta Poupança";
    }
 }
