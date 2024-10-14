@@ -1,17 +1,30 @@
-package classes.cap9;
+package classes.cap14.exercicios;
+
+import java.util.Objects;
 
 public abstract class Conta {
     String titular;
     int numero;
     int agencia;
     double saldo;
-    String tipo;
 
     public void saca(double valor) {
         if(valor > this.saldo) {
             throw new IllegalArgumentException("Saldo insuficiente");
         }
         this.saldo -= valor;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public void deposita(double valor) {
@@ -25,3 +38,4 @@ public abstract class Conta {
 
     public abstract String getInfo();
 }
+
