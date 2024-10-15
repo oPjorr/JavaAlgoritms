@@ -17,7 +17,7 @@ public class TestaContas {
       NovaConta.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-              JOptionPane.showMessageDialog(null, "Hello World");
+              JOptionPane.showConfirmDialog(null, "Deseja criar uma nova conta?");
           }
       });
     }
