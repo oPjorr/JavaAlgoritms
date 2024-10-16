@@ -7,7 +7,7 @@ import java.util.HashSet;
 public class TestaPerformance {
     public static void main(String[] args) {
         System.out.println("Iniciando...");
-        Collection<Integer> teste = new HashSet<>();
+        Collection<Integer> teste = new ArrayList<>();
         long inicio = System.currentTimeMillis();
 
         int total = 3000;

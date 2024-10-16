@@ -1,4 +1,4 @@
-package classes.cap9;
+package classes.cap9.exercicios;
 
 public class ContaCorrente extends Conta {
 
