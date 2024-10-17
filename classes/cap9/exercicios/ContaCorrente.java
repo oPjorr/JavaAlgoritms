@@ -3,8 +3,8 @@ package classes.cap9.exercicios;
 public class ContaCorrente extends Conta {
 
     @Override
-    public String getInfo() {
-        return "Conta Corrente";
+    public void getInfo() {
+        System.out.println("Conta Corrente");
     }
 
     @Override

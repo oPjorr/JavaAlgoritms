@@ -3,23 +3,29 @@ package classes.cap9.exercicios;
 import java.util.ArrayList;
 
 public class Conta {
-    String titular;
-    int numero;
-    int agencia;
-    double saldo;
-    String tipo;
+    protected String titular;
+    protected int numero;
+    protected String agencia;
+    protected double saldo;
+    protected String tipo;
 
-    public static ArrayList<Integer> agenciasContas = new ArrayList<>();
+    public static ArrayList<String> agenciasContas = new ArrayList<>();
     public static ArrayList<Integer> numerosContas = new ArrayList<>();
+
+    public Conta() {};
+    public Conta(int numero, String agencia, String titular, double saldo, String tipo) {
+        this.numero = numero;
+        this.agencia = agencia;
+        this.titular = titular;
+        this.saldo = saldo;
+        this.tipo = tipo;
+        numerosContas.add(this.numero);
+        agenciasContas.add(this.agencia);
+    }
 
     public void setNumero(int numero) {
         this.numero = numero;
         numerosContas.add(this.numero);
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-        agenciasContas.add(this.agencia);
     }
 
     public void setTitular(String titular) {
@@ -42,11 +48,20 @@ public class Conta {
         return titular;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
     public void saca(double valor) {
         if(valor > this.saldo) {
             throw new IllegalArgumentException("Saldo insuficiente");
+        } else {
+            this.saldo -= valor;
         }
-        this.saldo -= valor;
     }
 
     public void deposita(double valor) {
@@ -58,5 +73,6 @@ public class Conta {
         destino.deposita(valor);
     }
 
-    public String getInfo() {return "Conta(classe mãe)";};
+    public void getInfo() {
+        System.out.println("Conta(classe mãe)");};
 }
