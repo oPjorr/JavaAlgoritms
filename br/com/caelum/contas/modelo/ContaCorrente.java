@@ -1,6 +1,6 @@
 package br.com.caelum.contas.modelo;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta implements Tributavel{
 
     public ContaCorrente() {};
     public ContaCorrente(String agencia, int numero, String titular) {
@@ -20,5 +20,10 @@ public class ContaCorrente extends Conta{
         } else {
             this.saldo -= valor + taxa;
         }
+    }
+
+    @Override
+    public double getValorImposto() {
+        return saldo * 0.01;
     }
 }
