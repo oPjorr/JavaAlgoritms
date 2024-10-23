@@ -1,11 +1,9 @@
 package Udemy.stream;
 
-import Udemy.lambda.Comparator.Product;
-
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Program {
@@ -16,6 +14,16 @@ public class Program {
         st1.forEach(System.out::println);
         System.out.println(st1);
 
-        Map<String, Product> mapa = new HashMap<>();
+        Stream<String> st2 = Stream.of("Maria", "alex", "Bob");
+        System.out.println(Arrays.toString(st2.toArray()));
+
+        Stream<Integer> st3 = Stream.iterate(0, x -> x + 2);
+        System.out.println(Arrays.toString(st3.limit(10).toArray()));
+
+        Stream<Long> finonacciSequencia = Stream.iterate(new Long[] {0L, 1L}, p -> new Long[] {p[1], p[0]+p[1]}).map(p -> p[0]);
+        System.out.println(Arrays.toString(finonacciSequencia.limit(10).toArray()));
+
+        List<Integer> newList = list.stream().filter(item -> item % 2 == 0).map(item -> item * 20).toList();
+        newList.forEach(System.out::println);
     }
 }
