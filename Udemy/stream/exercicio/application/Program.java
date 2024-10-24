@@ -25,11 +25,11 @@ public class Program {
                 line = br.readLine();
             }
             double avg = list.stream().map(Product::getPrice).reduce(0.0, Double::sum) / list.size();
-             Optional<String> tmp = list.stream().map(Product::getName).reduce((x, y) -> x + "-" + y); // teste para combinar várias strings com reduce
+//             Optional<String> tmp = list.stream().map(Product::getName).reduce((x, y) -> x + "-" + y); // teste para combinar várias strings com reduce
             list.forEach(System.out::println);
             System.out.println();
             System.out.println("AVG: " + String.format("%.2f", avg) + " reais.");
-            System.out.println(tmp.get());
+//            System.out.println(tmp.get());
 
             Comparator<String> comp = (s1, s2) -> s1.compareToIgnoreCase(s2);
             List<String> names = list.stream().filter(p -> p.getPrice() < avg).map(Product::getName).sorted(comp.reversed()).toList();

@@ -1,0 +1,1 @@
+### Cap sobre Tratamento de excessões
