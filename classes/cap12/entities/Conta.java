@@ -69,9 +69,13 @@ public class Conta {
         this.saldo += valor;
     }
 
-    public void transfere(double valor, classes.cap9.exercicios.Conta destino) {
-        this.saca(valor);
-        destino.deposita(valor);
+    public void transfere(double valor, Conta destino) throws SaldoInsuficienteException {
+        if(valor > this.saldo) {
+            throw new SaldoInsuficienteException(valor);
+        } else {
+            this.saca(valor);
+            destino.deposita(valor);
+        }
     }
 
     public void getInfo() {
