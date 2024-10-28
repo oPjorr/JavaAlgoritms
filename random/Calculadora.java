@@ -18,6 +18,7 @@ public class Calculadora {
                 """);
         int opcao = leitura.nextInt();
         int valor1 = leitura.nextInt();
+        System.out.print("x");
         int valor2 = leitura.nextInt();
         List<Integer> listaNumeros = new ArrayList<Integer>(4);
         System.out.println(listaNumeros);
