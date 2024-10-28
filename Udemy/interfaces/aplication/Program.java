@@ -33,7 +33,7 @@ public class Program {
 
 
         CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
-        RentalService = new RentalService(precoHora, precoDia, new BrazilTaxService());
+        RentalService rentalService = new RentalService(precoHora, precoDia, new BrazilTaxService());
 
         leitura.close();
     }
