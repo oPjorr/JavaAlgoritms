@@ -1,4 +1,4 @@
-package Udemy.JDBC.jdbc6.db;
+package Udemy.JDBC.DemoDaoJDBC.db;
 
 import Udemy.JDBC.jdbc5.db.DbException;
 
