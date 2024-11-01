@@ -26,7 +26,7 @@ public class Program {
 
         int opcaoTable = leitura.nextInt();
 
-        if(opcaoTable == 1) {
+        if (opcaoTable == 1) {
             while (true) {
                 System.out.println("""
                         =========================================
@@ -56,7 +56,6 @@ public class Program {
                         System.out.println(item);
                     }
                 } else if (opcaoCrud == 3) {
-                    System.out.println();
                     List<Seller> list = sellerDao.findAll();
                     for (Seller item : list) {
                         System.out.println(item);
@@ -91,13 +90,68 @@ public class Program {
                     sellerDao.deleteById(id);
                     System.out.println("Delete Completed!");
                 } else if (opcaoCrud == 7) {
+                    System.out.println("Bye Bye");
                     break;
                 } else {
                     System.out.println("Número Inválido!");
                 }
             }
-        } else if(opcaoTable == 2) {
-            System.out.println();
+        } else if (opcaoTable == 2) {
+            while (true) {
+                System.out.println("""
+                         ===========================================
+                        |  Qual operação você deseja fazer?         |
+                        |===========================================|
+                        |  1. Listar Department(s) por ID           |
+                        |  2. Listar Department(s) por Departament  |
+                        |  3. Listar todos os Departments           |
+                        |  4. Adicionar um novo Department          |
+                        |  5. Atualizar o nome de um Department     |
+                        |  6. Apagar um department                  |
+                        |  7. Sair                                  |
+                        =============================================""");
+
+                int opcaoCrud = leitura.nextInt();
+
+                if (opcaoCrud == 1) {
+                    System.out.println("Digite o ID do department que você deseja ver");
+                    int id = leitura.nextInt();
+                    Department department = departmentDao.findById(id);
+                    System.out.println(department);
+                } else if (opcaoCrud == 2) {
+                    System.out.println("Digite o ID do Department que você deseja ver");
+                } else if (opcaoCrud == 3) {
+                    List<Department> list = departmentDao.findAll();
+                    list.forEach(System.out::println);
+                } else if (opcaoCrud == 4) {
+                    System.out.println("Informe os dados do novo Department: ");
+                    System.out.println("Nome: ");
+                    String nome = leitura.next();
+                    Department department = new Department(null, nome);
+                    departmentDao.insert(department);
+
+                    System.out.println("Inserted! New id = " + department.getId());
+                } else if (opcaoCrud == 5) {
+                    System.out.println("Digite o ID do department que você deseja alterar: ");
+                    int id = leitura.nextInt();
+                    Department department = departmentDao.findById(id);
+
+                    System.out.println("Agora, digite o novo nome que ele vai receber: ");
+                    String name = leitura.next();
+                    department.setName(name);
+                    departmentDao.update(department);
+                } else if (opcaoCrud == 6) {
+                    System.out.println("Enter id for delete test: ");
+                    int id = leitura.nextInt();
+                    departmentDao.deleteById(id);
+                    System.out.println("Delete completed!");
+                } else if (opcaoCrud == 7) {
+                    System.out.println("Bye Bye");
+                    break;
+                } else {
+                    System.out.println("Número Inválido!");
+                }
+            }
         } else {
             System.out.println("Número Inválido!");
         }
