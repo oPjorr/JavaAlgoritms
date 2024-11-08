@@ -1,4 +1,4 @@
-FROM docker.io/maven:4.0.0-openjdk-17-slim AS build
+FROM docker.io/maven:3.8.5-openjdk-17-slim AS build
 WORKDIR /app
 COPY course/pom.xml .
 COPY course/src ./src
