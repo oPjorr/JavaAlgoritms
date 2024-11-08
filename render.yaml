@@ -5,7 +5,3 @@ services:
     runtime: docker
     dockerfilePath: Dockerfile
     healthCheckPath: /actuator/health
-    envVars:
-      - key: JAVA_OPTS
-        value: "-Xmx512m -Xms256m"
-      - numInstances: 1
