@@ -1,3 +1,5 @@
 /.idea
 /out
+/course/src/main/resources/application-dev.properties
+
 
