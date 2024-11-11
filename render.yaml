@@ -3,11 +3,11 @@ databases:
     plan: free
     databaseName: course
     user: course
-    
+
 services:
   - type: web
     plan: free
-    name: <NOME-SERVIÇO>
+    name: course-sp
     runtime: docker
     dockerfilePath: Dockerfile
     healthCheckPath: /actuator/health
