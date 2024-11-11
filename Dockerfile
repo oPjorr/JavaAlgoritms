@@ -1,10 +1,23 @@
-FROM docker.io/maven:3.8.5-openjdk-17-slim AS build
+FROM docker.io/maven:3.9.9-amazoncorretto-17-alpine AS build
+
 WORKDIR /app
-COPY course/pom.xml .
-COPY course/src ./src
+
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+COPY src ./src
 RUN mvn clean package -DskipTests
-FROM cgr.dev/chainguard/jdk:latest
+
+FROM gcr.io/distroless/java17-debian12:nonroot
+
 WORKDIR /app
+
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+EXPOSE 10000
+
+USER nonroot:nonroot
+
+ENV JDK_JAVA_OPTIONS="-Xms256m -Xmx512m"
+
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=10000"]
