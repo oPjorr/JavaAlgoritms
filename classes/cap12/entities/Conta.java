@@ -58,6 +58,9 @@ public class Conta {
     }
 
     public void saca(double valor) throws SaldoInsuficienteException{
+        if (valor < 0) {
+            throw new IllegalArgumentException("O valor de saque não pode ser negativo.");
+        }
         if(valor > this.saldo) {
             throw new SaldoInsuficienteException(valor);
         } else {
